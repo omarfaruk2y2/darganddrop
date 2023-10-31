@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+}
+
+.card {
+    background: #f0f0f0;
+    padding: 20px;
+    text-align: center;
+}
+
+.card:first-child {
+    grid-column: span 2;
+    grid-row: span 2;
+}
