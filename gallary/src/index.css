@@ -3,20 +3,44 @@
 @tailwind utilities;
 
 
+body{
+    background: #d2d2d2;
+}
 
 .container {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 10px;
+    gap: 25px;
 }
 
 .card {
-    background: #f0f0f0;
-    padding: 20px;
-    text-align: center;
+    background: #fff;
+    border-radius: 6px;
+    position: relative;
+}
+.card:hover .overly{
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #000;
+    opacity: 0.3;
+    border-radius: 6px;
 }
 
 .card:first-child {
     grid-column: span 2;
     grid-row: span 2;
+}
+.check{
+    display: none;
+}
+.card:hover .check{
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    display: unset;
+}
+.check span{
+    color: white !important;
 }

@@ -1,26 +1,8 @@
 import React, {useState, useRef} from 'react'
 import { ImImage } from 'react-icons/im';
-import List2 from './Test/List2';
-import List3 from './Test/List3';
+import Checkbox from '@mui/material/Checkbox';
+const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
-const items =[
-  {
-    id: 1,
-    text: "1st"
-  },
-  {
-    id: 2,
-    text: "2nd"
-  },
-  {
-    id: 3,
-    text: "3rd"
-  },
-  {
-    id: 4,
-    text: "4th"
-  }
-]
 
 const App = (props) => {
 
@@ -31,12 +13,10 @@ const App = (props) => {
 
   const dragStart = (e, position) =>{
     dragItem.current = position;
-    // console.log(e.target.innerHTML);
   };
 
   const dragEnter = (e, position) => {
     dragOverItem.current = position;
-    // console.log(e.target.innerHTML);
   };
 
   const drop = (e) =>{
@@ -53,10 +33,11 @@ const App = (props) => {
 
   return (
     <>
-    <List3></List3>
-    <List2></List2>
-    <div className='max-w-7xl mx-auto mt-11'>
-      <div className='container'>
+    <div className='max-w-7xl mx-auto my-6'>
+      <div className='px-9 pt-9 pb-5 bg-white rounded-t-md border-b'>
+          <h1 className='text-2xl font-medium'>Gallery</h1>
+      </div>
+      <div className='container p-9 bg-white rounded-b-md'>
       {
         list.map((item, index)=> 
           <div 
@@ -66,9 +47,13 @@ const App = (props) => {
             onDrop={(e) => onDrop(e)} 
             key={index}
             draggable
-            className="card"
+            className="card cursor-move border relative"
           >
-            <img src={item} alt="" />
+            <div className='overly'></div>
+            <img className='rounded-md h-full' src={item} alt="" />
+            <div className='check'>
+              <Checkbox className='bg-white text-white' {...label} />
+            </div>
 
           </div>
         )
