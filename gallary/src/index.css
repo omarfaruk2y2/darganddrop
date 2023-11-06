@@ -41,6 +41,25 @@ body{
     left: 15px;
     display: unset;
 }
-.check span{
-    color: white !important;
+.drop-file {
+    height: -webkit-fill-available;
+}
+
+@media(max-width: 991px){
+    .container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 25px;
+    }
+}
+
+@media(max-width: 575px){
+    .container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+    .drop-file{
+        height: 150px;
+    }
 }
